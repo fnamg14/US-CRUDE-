@@ -43,7 +43,7 @@ class BotScraper {
         timeout: 60000
       });
 
-      await page.select('#cbAtivo', 'US_CRUDE_OTC_QTX');
+      await page.select('#cbAtivo', 'BCO_USD');
       await this.sleep(500);
 
       await page.select('#selPercentageMin', '100');
