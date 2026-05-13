@@ -43,12 +43,13 @@ class BotScraper {
         timeout: 60000
       });
 
-      await page.select('#cbAtivo', 'US_CRUDE_OTC_QTX');
-      await page.evaluate(() => {
+      await page.evaluate((pair) => {
         const select = document.querySelector('#cbAtivo');
+        select.value = pair;
         select.dispatchEvent(new Event('change', { bubbles: true }));
-      });
-      await this.sleep(1000);
+        select.dispatchEvent(new Event('input', { bubbles: true }));
+      }, 'US_CRUDE_OTC_QTX');
+      await this.sleep(2000);
 
       await page.select('#selPercentageMin', '100');
       await this.sleep(500);
