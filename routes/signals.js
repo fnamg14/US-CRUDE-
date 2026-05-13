@@ -3,6 +3,7 @@ const router = express.Router();
 const signalsController = require('../controllers/signalsController');
 
 router.post('/oil', signalsController.generateOILSignals);
+router.post('/get', signalsController.generateOILSignals);
 router.get('/upcoming', signalsController.getUpcomingSignals);
 router.post('/clear-cache', signalsController.clearCache);
 
